@@ -19,5 +19,5 @@ public interface CategoryMapper {
     //Esta anotación realiza el proceso inverso a lo definido en @Mappings
     @InheritInverseConfiguration
     @Mapping(target = "productos", ignore = true)
-    Categoria toCategoria();
+    Categoria toCategoria(Category category);
 }

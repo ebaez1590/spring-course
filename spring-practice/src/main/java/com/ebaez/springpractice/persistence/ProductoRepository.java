@@ -5,6 +5,7 @@ import com.ebaez.springpractice.domain.repository.ProductRepository;
 import com.ebaez.springpractice.persistence.crud.ProductoCrudRepository;
 import com.ebaez.springpractice.persistence.entity.Producto;
 import com.ebaez.springpractice.persistence.mapper.ProductMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -15,7 +16,11 @@ import java.util.Optional;
 public class ProductoRepository implements ProductRepository {
     //El objetivo principal es que el repository quede enfocado al dominio y no a una tabla de la bdd específica.
     //Orientar nuestro repositorio a términos de dominio
+    //Ocupar el contenedor de spring de inversión de control
+    @Autowired
     private ProductoCrudRepository productoCrudRepository;
+
+    @Autowired
     private ProductMapper mapper;
 
     @Override
