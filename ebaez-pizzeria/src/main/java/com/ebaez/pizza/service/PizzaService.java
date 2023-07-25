@@ -28,5 +28,15 @@ public class PizzaService {
         return this.pizzaRepository.findById(idPizza).orElse(null);
     }
 
+    public PizzaEntity save(PizzaEntity pizza) {
+        //Spring repositories maneja automáticamente las catualizaciones de los objetos
+        //Es decir antes de gaurdar algo valida que no exista y además verifica si hubo
+        // algún cambio en algún atributo del objeto que se quiere guardar
+        return pizzaRepository.save(pizza);
+    }
+
+    public boolean exists(int idPizza) {
+        return this.pizzaRepository.existsById(idPizza);
+    }
 
 }
